@@ -5,17 +5,15 @@ import com.marco.estruturadedados.vetor.Vetor;
 public class Aula8 {
 
     public static void main(String[] args) {
-        Vetor vetor = new Vetor(10);
+        Vetor vetor = new Vetor(3);
 
-        try {
-            vetor.adiciona("A");
-            vetor.adiciona("B");
-            vetor.adiciona("C");
-            vetor.adiciona(4, "D");
-            System.out.println(vetor);
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+        vetor.adiciona("D");
+        vetor.adiciona("E");
+        //vetor.adiciona(4, "D");
+        System.out.println(vetor);
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 }
