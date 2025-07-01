@@ -1,7 +1,5 @@
 package com.marco.estruturadedados.vetor;
 
-import java.util.Arrays;
-
 public class Vetor {
 
     private String[] elementos;
@@ -31,6 +29,18 @@ public class Vetor {
             throw new Exception("Vetor já está cheio");
         }
 
+    }
+
+    public boolean adiciona(int posicao, String elemento) {
+        if(!(posicao >= 0 && posicao < tamanho)) {
+            throw new IllegalArgumentException("Posição inválida: " + posicao);
+        }
+        for (int i = this.tamanho - 1; i >= posicao; i--) {
+            this.elementos[i + 1] = this.elementos[i];
+        }
+        this.elementos[posicao] = elemento;
+        this.tamanho++;
+        return true;
     }
 
     public String busca(int posicao) {
