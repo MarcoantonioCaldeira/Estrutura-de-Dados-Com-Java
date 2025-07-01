@@ -11,16 +11,18 @@ public class Vetor {
         this.tamanho = 0;
     }
 
-//    public void adiciona1(String elemento) {
-//        for(int i=0; i<elementos.length; i++) {
-//            if(elementos[i] == null) {
-//                elementos[i] = elemento;
-//                break;
-//            }
-//        }
-//    }
+    //Adicao basica
+    public void adiciona1(String elemento) {
+        for(int i=0; i<elementos.length; i++) {
+            if(elementos[i] == null) {
+                elementos[i] = elemento;
+                break;
+            }
+        }
+    }
 
 
+    //Metodo adiciona melhorado
     public boolean adiciona(String elemento){
         this.aumentaCapacidade();
         if(this.tamanho < this.elementos.length) {
@@ -33,6 +35,7 @@ public class Vetor {
 
     }
 
+    //Adicionar elemento em uma posição específica
     public boolean adiciona(int posicao, String elemento) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida: " + posicao);
@@ -48,6 +51,17 @@ public class Vetor {
         return true;
     }
 
+    public void remove(int posicao){
+        if (!(posicao >= 0 && posicao < tamanho)){
+            throw new IllegalArgumentException("Posição inválida");
+        }
+        for (int i=posicao; i<this.tamanho-1; i++){
+            this.elementos[i] = this.elementos[i+1];
+        }
+        this.tamanho--;
+    }
+
+    //Aumentar capacidade do vetor
     private void aumentaCapacidade(){
         if (this.tamanho == this.elementos.length){
             String[] elementosNovos = new String[this.elementos.length * 2];
@@ -58,6 +72,7 @@ public class Vetor {
         }
     }
 
+    //Busca de elemento por posição
     public String busca(int posicao) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida: " + posicao);
@@ -65,6 +80,7 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
+    //Busca de posicao por elemento
     public int buscaPosicao(String elemento){
         for (int i=0; i<this.tamanho; i++){
             if (this.elementos[i].equals(elemento)){
