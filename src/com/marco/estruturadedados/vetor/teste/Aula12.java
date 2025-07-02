@@ -35,6 +35,8 @@ public class Aula12 {
         arrayList.remove(0);
         arrayList.remove("B");
 
+        arrayList.contains("C");
+
         System.out.println(arrayList);
 
         System.out.println(arrayList.size());
