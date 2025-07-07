@@ -1,5 +1,8 @@
 package com.marco.estruturadedados.vetor;
 
+import java.util.ArrayList;
+
+
 public class Lista<T> {
 
     private T[] elementos;
@@ -61,6 +64,15 @@ public class Lista<T> {
         this.tamanho--;
     }
 
+    public void removePosicao(T elemento){
+        int pos = this.buscaPosicao(elemento);
+        if(pos > -1) {
+            this.remove(pos);
+        } else {
+            throw new IllegalArgumentException("Elemento não encontrado: " + elemento);
+        }
+    }
+
     //Aumentar capacidade do vetor
     private void aumentaCapacidade(){
         if (this.tamanho == this.elementos.length){
@@ -73,7 +85,7 @@ public class Lista<T> {
     }
 
     //Busca de elemento por posição
-    public Object busca(int posicao) {
+    public T busca(int posicao) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida: " + posicao);
         }
@@ -81,8 +93,26 @@ public class Lista<T> {
     }
 
     //Busca de posicao por elemento
-    public int buscaPosicao(Object elemento){
+    public int buscaPosicao(T elemento){
         for (int i=0; i<this.tamanho; i++){
+            if (this.elementos[i].equals(elemento)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean buscaContains(T elemento) {
+       return buscaPosicao(elemento) > -1;
+    }
+
+    public T obtem(int posicao){
+        return this.busca(posicao);
+    }
+
+    //Busca o indice do elemento dando prioridade ao ultimo indice
+    public int ultimoIndice(T elemento){
+        for (int i=this.tamanho-1; i>=0; i--){
             if (this.elementos[i].equals(elemento)){
                 return i;
             }
