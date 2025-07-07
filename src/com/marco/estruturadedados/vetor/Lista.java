@@ -120,6 +120,13 @@ public class Lista<T> {
         return -1;
     }
 
+    public void limpar(){
+        for (int i=0; i<this.tamanho; i++){
+            this.elementos[i] = null;
+        }
+        this.tamanho = 0;
+    }
+
     public int tamanho() {
         return this.tamanho;
     }
