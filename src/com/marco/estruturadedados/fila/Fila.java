@@ -1,4 +1,4 @@
-package com.marco.estruturadedados.fila.teste;
+package com.marco.estruturadedados.fila;
 
 import com.marco.estruturadedados.base.EstruturaEstatica;
 

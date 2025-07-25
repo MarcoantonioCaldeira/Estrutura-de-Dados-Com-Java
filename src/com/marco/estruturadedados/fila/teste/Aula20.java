@@ -1,5 +1,7 @@
 package com.marco.estruturadedados.fila.teste;
 
+import com.marco.estruturadedados.fila.Fila;
+
 public class Aula20 {
     public static void main(String[] args) {
 

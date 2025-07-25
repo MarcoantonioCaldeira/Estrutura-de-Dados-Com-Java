@@ -1,6 +1,6 @@
-package com.marco.estruturadedados.fila.teste;
+package com.marco.estruturadedados.fila;
 
-public class FilaComPrioridade <T> extends Fila<T>{
+public class FilaComPrioridade <T> extends Fila<T> {
 
     public void enfileira(T elemento){
 
